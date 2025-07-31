@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OwnersModule } from './owners/owners.module';
-import { RestModule } from './rest/rest.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
@@ -12,7 +11,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     OwnersModule,
-    RestModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'), // or true for in-memory
