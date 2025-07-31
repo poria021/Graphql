@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pets {
+  id: Int!
+  name: String!
+  type: String
+  owner: Owners
+  ownerId: Int!
+}
+
+type Owners {
+  id: Int!
+  name: String!
+  pets: [Pets!]
+}
+
+type Query {
+  findAll: [Owners!]!
+  graphql(id: Int!): Owners!
+  pets: [Pets!]!
+  getOne(id: Int!): Pets!
+}
+
+type Mutation {
+  createGraphql(createGraphqlInput: CreateGraphqlInput!): Owners!
+  updateGraphql(updateGraphqlInput: UpdateGraphqlInput!): Owners!
+  removeGraphql(id: Int!): Owners!
+  createPets(create_pets: CreatePetDto!): Pets!
+}
+
+input CreateGraphqlInput {
+  name: String!
+}
+
+input UpdateGraphqlInput {
+  name: String
+  id: Int!
+}
+
+input CreatePetDto {
+  name: String!
+  type: String
+  ownerId: Float!
+}
